@@ -1,0 +1,20 @@
+stages:
+  - test
+  - build
+
+build:
+  stage: test
+  image: docker:latest
+  script:
+    - go test .
+  tags:
+    - netology
+
+test:
+  stage: build
+  image: docker:latest
+  script:
+    - docker build .
+  tags:
+    - netology
+    
