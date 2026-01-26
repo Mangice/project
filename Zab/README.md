@@ -66,5 +66,5 @@
 
 - find / -name zabbix_agentd.conf
 - tail -f /var/log/zabbix/zabbix_agentd.log
-- sed -i 's/Server=127.0.0.1/Server=158.160.208.3/g' /etc/zabbix/zabbix_agentd.conf
+- sed -i 's/Server=127.0.0.1/Server=10.0.2.15/g' /etc/zabbix/zabbix_agentd.conf
 
