@@ -38,19 +38,22 @@
 ### Требования к результатам
 1. Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
 
+<img width="1920" height="946" alt="Вставленное изображение (3)" src="https://github.com/user-attachments/assets/be74a984-f5b0-463e-8241-35668c557c92" />
 
 
 2. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
 
-
-
+<img width="1920" height="946" alt="Вставленное изображение (4)" src="https://github.com/user-attachments/assets/e991892f-6307-4461-8c5e-f4f419083b6e" />
 
 
 3. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
 
+<img width="1920" height="946" alt="Вставленное изображение (5)" src="https://github.com/user-attachments/assets/66d564ad-750b-43c0-95d7-9c4a1e141d6a" />
 
 
 4. Приложите в файл README.md текст использованных команд в GitHub
+
+<img width="1920" height="946" alt="Вставленное изображение (6)" src="https://github.com/user-attachments/assets/0212526c-77c7-4870-9841-4d1a38213f6b" />
 
 - sudo -s 
 - wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_6.0+ubuntu24.04_all.deb
