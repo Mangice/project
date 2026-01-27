@@ -29,14 +29,10 @@
 3. Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов
 4. Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera
 5. Прикрепите за каждым хостом шаблон Linux by Zabbix Agent
-
-![2.1](img/img2.1.png)
-
-![2.2](img/img2.2.png)
-
 6. Проверьте что в разделе Latest Data начали появляться данные с добавленных агентов
 
-![2.3](img/img2.3.png)
+<img width="1920" height="946" alt="5" src="https://github.com/user-attachments/assets/1ac67a07-1768-4cec-874c-f7a74e62d1c5" />
+
 
 ## Задание 3
 Привяжите созданный шаблон к двум хостам. Также привяжите к обоим хостам шаблон Linux by Zabbix Agent.
@@ -47,7 +43,8 @@
 3. Так же к каждому хосту привяжите шаблон Linux by Zabbix Agent
 4. Проверьте что в раздел Latest Data начали поступать необходимые данные из вашего шаблона
 
-![3](img/img3.png)
+<img width="1920" height="946" alt="6" src="https://github.com/user-attachments/assets/2bc3e15e-b500-4dc5-9378-cf882f00ec2f" />
+
 
 ## Задание 4
 Создайте свой кастомный дашборд.
@@ -57,5 +54,6 @@
 2. В разделе Dashboards создайте новый дашборд
 3. Разместите на нём несколько графиков на ваше усмотрение.
 
-![4](img/img4.png)
+<img width="1920" height="946" alt="8" src="https://github.com/user-attachments/assets/ace3bb39-6eac-4a64-8d5b-16184e0ad26e" />
+
 
