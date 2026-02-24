@@ -15,4 +15,5 @@
 * На проверку отправьте файл crontab и скриншот с результатом работы утилиты.
 <img width="1169" height="361" alt="Снимок экрана от 2026-02-24 11-32-25" src="https://github.com/user-attachments/assets/ba99814b-88d8-4ce0-8470-7deb5371ea48" />
 Файл на проверку
+
 https://github.com/Mangice/project/blob/main/%D0%A0%D0%B5%D0%B7%D0%B5%D1%80%D0%B2%D0%BD%D0%BE%D0%B5%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/crontab
