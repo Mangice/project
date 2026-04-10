@@ -92,6 +92,6 @@
 <details>
 <summary>Скриншот</summary>
 
-![2.1](./img/img2.1.png)
+<img width="494" height="671" alt="Снимок экрана от 2026-04-10 15-55-18" src="https://github.com/user-attachments/assets/749dbbbe-16b8-4ac7-bc77-f9481db0305e" />
 
 </details>
