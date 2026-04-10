@@ -25,8 +25,7 @@ FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```
 
-5.
-Переподключитесь к базе данных от имени sys_temp.
+5.Переподключитесь к базе данных от имени sys_temp.
 
 ```sql
 ALTER USER 'sys_temp'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
