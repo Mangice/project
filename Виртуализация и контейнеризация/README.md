@@ -1,3 +1,4 @@
+# Домашнее задание к занятию «Оркестрация группой Docker контейнеров на примере Docker Compose» - Исмаилов Осман
 
 ## Задача 1
 
@@ -109,5 +110,158 @@
 
 <img width="1300" height="485" alt="Снимок экрана от 2026-05-11 11-15-08" src="https://github.com/user-attachments/assets/9d0ecb07-a5cc-4415-83d4-bd8bc8f6f760" />
 
+
+</details>
+
+
+## Задача 5
+
+1. Создайте отдельную директорию(например /tmp/netology/docker/task5) и 2 файла внутри него.
+"compose.yaml" с содержимым:
+```
+version: "3"
+services:
+  portainer:
+    network_mode: host
+    image: portainer/portainer-ce:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+"docker-compose.yaml" с содержимым:
+```
+version: "3"
+services:
+  registry:
+    image: registry:2
+
+    ports:
+    - "5000:5000"
+```
+
+И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-application-model/#the-compose-file )
+
+   - `mkdir -p /tmp/netology/docker/task5 && cd /tmp/netology/docker/task5`
+   - 
+      ```bash
+      cat > compose.yaml <<EOF
+      version: "3"
+      services:
+        portainer:
+          network_mode: host
+          image: portainer/portainer-ce:latest
+          volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+      EOF
+      ```
+   - 
+      ```bash
+      cat > docker-compose.yaml <<EOF
+      version: "3"
+      services:
+        registry:
+          image: registry:2
+          ports:
+            - "5000:5000"
+      EOF
+      ```
+   - `docker compose up -d`
+   - Был запущен compose.yaml. Причина описана в документации Docker Compose, если флаг -f не указан, Compose ищет в текущей директории файл compose.yaml (или compose.yml). Если его нет, ищет docker-compose.yaml/docker-compose.yml. Таким образом, compose.yaml имеет приоритет над docker-compose.yaml при автоматическом поиске.
+
+2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
+
+    ```bash
+    cat > compose.yaml <<EOF
+    include:
+      - docker-compose.yaml
+
+    services:
+      portainer:
+        network_mode: host
+        image: portainer/portainer-ce:latest
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+    EOF
+    ```
+3. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
+
+    ```bash
+    # Шаг 3.1: Убедимся, что образ custom-nginx:1.0.0 существует (из задачи 1)
+    docker images | grep custom-nginx
+
+    # Шаг 3.2: Тегируем образ для локального registry
+    docker tag custom-nginx:1.0.0 localhost:5000/custom-nginx:latest
+
+    # Шаг 3.3: Пушим образ в локальный registry
+    docker push localhost:5000/custom-nginx:latest
+
+    # Шаг 3.4: Проверяем, что образ появился в registry
+    curl -X GET http://localhost:5000/v2/_catalog
+    ```
+4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
+
+    ```
+    1. Откройте в браузере: https://127.0.0.1:9000
+    2. Браузер предупредит о небезопасном соединении (самоподписанный сертификат). Нажмите "Продолжить" / "Advanced" → "Proceed".
+    3. Создайте администратора.
+    4. Выберите "Get Started" → "Local" (окружение Docker)
+    5. Перейдите на вкладку "Stacks" → "Add stack" → "Web editor"
+    6. Вставьте следующий компоуз:
+
+        version: '3'
+
+        services:
+          nginx:
+            image: 127.0.0.1:5000/custom-nginx
+            ports:
+              - "9090:80"
+
+    7. Назовите стек (например, my-nginx) и нажмите "Deploy the stack"
+    ```
+
+5. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
+
+```
+version: '3'
+
+services:
+  nginx:
+    image: 127.0.0.1:5000/custom-nginx
+    ports:
+      - "9090:80"
+```
+6. Перейдите на страницу "http://127.0.0.1:9000/#!/2/docker/containers", выберите контейнер с nginx и нажмите на кнопку "inspect". В представлении <> Tree разверните поле "Config" и сделайте скриншот от поля "AppArmorProfile" до "Driver".
+
+7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
+
+    ```bash
+    rm compose.yaml
+
+    docker compose up -d
+
+    # Суть предупреждения: Docker Compose ищет файл compose.yaml, но не находит его, поэтому автоматически использует docker-compose.yaml как резервный вариант. Это стандартное поведение, описанное в документации .
+
+    # Предложенное действие: Само предупреждение не требует действий — Compose сам переключился на доступный файл. Но если вы хотите избежать предупреждения в будущем, можно явно указать файл через -f
+    
+    docker compose down
+    ```
+
+<details>
+<summary>Скриншоты</summary>
+
+В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
+
+<img width="1843" height="845" alt="Снимок экрана от 2026-05-11 11-53-34" src="https://github.com/user-attachments/assets/0758c608-b115-4c1e-8cb0-ed2beaf740c2" />
+
+<img width="1854" height="310" alt="Снимок экрана от 2026-05-11 12-16-10" src="https://github.com/user-attachments/assets/ee458a3e-a06b-4f8f-a4f3-ac38e52cd34c" />
+
+<img width="1854" height="685" alt="Снимок экрана от 2026-05-11 12-16-40" src="https://github.com/user-attachments/assets/95e9d84d-1200-4621-9917-5c19991bcab7" />
+
+<img width="1920" height="937" alt="Снимок экрана от 2026-05-11 12-17-55" src="https://github.com/user-attachments/assets/82dc9431-bf56-45fb-92b5-b1275b51988e" />
+
+<img width="1920" height="937" alt="Снимок экрана от 2026-05-11 12-19-07" src="https://github.com/user-attachments/assets/69ff3e79-22f1-4cc6-a751-95f4ce03c834" />
+
+<img width="1920" height="937" alt="Снимок экрана от 2026-05-11 12-35-26" src="https://github.com/user-attachments/assets/8b6ae1c0-faa0-4ca7-bd4b-a0c8969ddaa5" />
+
+<img width="1854" height="308" alt="Снимок экрана от 2026-05-11 12-37-09" src="https://github.com/user-attachments/assets/af9b2e17-a81b-48e3-ac39-fb0ab4443618" />
 
 </details>
