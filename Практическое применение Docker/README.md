@@ -100,12 +100,10 @@
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий.
 
-![Uploading Снимок экрана от 2026-06-03 20-21-33.png…]()
+<img width="1764" height="118" alt="Снимок экрана от 2026-06-03 20-21-33" src="https://github.com/user-attachments/assets/80855116-f9cf-4e0e-af3e-76227e69e1a0" />
+
 
 
 </details>
 
-<details>
-<summary> Ответы </summary>
 
-#### [Пошаговое выполнение заданий](./files/step_by_step.md)
