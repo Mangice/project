@@ -37,7 +37,7 @@
 
 2.1 Используйте multistage сборку вместо single stage.
 
-<img width="1764" height="88" alt="Снимок экрана от 2026-06-03 20-02-06" src="https://github.com/user-attachments/assets/cf6721fd-e917-4d7c-97ce-5c3c268b3752" />
+
 
 <img width="1848" height="44" alt="Снимок экрана от 2026-06-02 14-37-47" src="https://github.com/user-attachments/assets/d91b31b0-a057-41a7-8522-82f103b5e2cf" />
 
@@ -72,35 +72,36 @@
 2. Подключитесь к Вм по ssh и установите docker.
 3. Напишите [bash-скрипт](./files/deploy.sh), который скачает ваш fork-репозиторий в каталог /opt и запустит проект целиком.
    
-    ![3.1](./img/img3.1.png)
+    
+
 
 4. Зайдите на сайт проверки http подключений, например(или аналогичный): ```https://check-host.net/check-http``` и запустите проверку вашего сервиса ```http://<внешний_IP-адрес_вашей_ВМ>:8090```. Таким образом трафик будет направлен в ingress-proxy. Трафик должен пройти через цепочки: Пользователь → Internet → Nginx → HAProxy → FastAPI(запись в БД) → HAProxy → Nginx → Internet → Пользователь
 
-    ![3.4](./img/img3.4.png)
+    <img width="1920" height="937" alt="Снимок экрана от 2026-06-03 19-15-45" src="https://github.com/user-attachments/assets/9e74c27a-e1bf-4762-ba20-3d9a82c1012f" />
+
 
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 
-    ![3.5](./img/img3.5.png)
+6. Повторите SQL-запрос на сервере и приложите скриншот и ссылку на [fork](https://github.com/Mangice/shvirtd-example-python).
 
-6. Повторите SQL-запрос на сервере и приложите скриншот и ссылку на [fork](https://github.com/Vndr3w/shvirtd-example-python.git).
+   <img width="1920" height="937" alt="Снимок экрана от 2026-06-03 19-20-41" src="https://github.com/user-attachments/assets/be531df7-c9c8-4ac9-8e33-44481f2c44a1" />
 
-    ![3.6](./img/img3.6.png)
 
 ## Задача 4
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий.
 
-![4.1](./img/img4.1.png)
+<img width="1920" height="937" alt="Снимок экрана от 2026-06-03 19-26-11" src="https://github.com/user-attachments/assets/cc01e914-7f22-41c1-aba1-adcd03df2eb1" />
 
-![4.2](./img/img4.2.png)
 
-![4.3](./img/img4.3.png)
+
 
 ## Задача 4.1
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий.
 
-![4.1.1](./img/img4.1.1.png)
+![Uploading Снимок экрана от 2026-06-03 20-21-33.png…]()
+
 
 </details>
 
