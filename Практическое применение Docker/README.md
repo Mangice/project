@@ -91,9 +91,11 @@
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий.
 
-<img width="1920" height="937" alt="Снимок экрана от 2026-06-03 19-26-11" src="https://github.com/user-attachments/assets/cc01e914-7f22-41c1-aba1-adcd03df2eb1" />
+<img width="1853" height="582" alt="Снимок экрана от 2026-06-05 14-07-15" src="https://github.com/user-attachments/assets/6b31c94f-618c-4644-a632-520a956fe7b6" />
 
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-05 14-20-34" src="https://github.com/user-attachments/assets/05289770-2565-4d49-ad36-9d85287d5cc9" />
 
+<img width="1304" height="463" alt="Снимок экрана от 2026-06-05 14-32-59" src="https://github.com/user-attachments/assets/4b014335-e7f9-4943-9162-54527fa4f5a8" />
 
 
 ## Задача 4.1
