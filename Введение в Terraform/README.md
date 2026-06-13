@@ -24,7 +24,7 @@
 
 <img width="1920" height="936" alt="Снимок экрана от 2026-06-13 12-28-38" src="https://github.com/user-attachments/assets/5515eae4-9a5d-453d-9ba3-91965dd1081e" />
 
- - Значение ключа "result": "cgTf31ACv7C2aEp"
+ - Значение ключа "result": "cgTf31ACv7C2aEps"
 
 4. Раскомментируйте блок кода, примерно расположенный на строчках 29–42 файла **main.tf**.
 Выполните команду ```terraform validate```. Объясните, в чём заключаются намеренно допущенные ошибки. Исправьте их.
@@ -40,6 +40,7 @@
 <img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-05-32" src="https://github.com/user-attachments/assets/92a132c9-ff42-49c8-9067-bccde4a2f8e7" />
 
 <img width="685" height="222" alt="Снимок экрана от 2026-06-13 13-05-42" src="https://github.com/user-attachments/assets/66fce69a-4a72-4855-862e-b9da44a6b6f0" />
+
 
 <details>
 <summary>Исправленный код</summary>
@@ -91,15 +92,36 @@ resource "docker_container" "nginx_container" {
 6. Замените имя docker-контейнера в блоке кода на ```hello_world```. Не перепутайте имя контейнера и имя образа. Мы всё ещё продолжаем использовать name = "nginx:latest". Выполните команду ```terraform apply -auto-approve```.
 Объясните своими словами, в чём может быть опасность применения ключа  ```-auto-approve```. Догадайтесь или нагуглите зачем может пригодиться данный ключ? В качестве ответа дополнительно приложите вывод команды ```docker ps```.
 
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-21-00" src="https://github.com/user-attachments/assets/cedb5073-4a93-49dc-996a-d54adff84b33" />
+
+- Ключ `-auto-approve` автоматически подтверждает применение изменений без интерактивного запроса. Это может привести к:
+  - Случайному изменению/удалению production-ресурсов.
+  - Неконтролируемому созданию ресурсов с непредвиденными последствиями.
+  - Выполнению невалидной конфигурации (ошибки не будут проверены пользователем).
+- Когда полезен:
+  - В CI/CD пайплайнах для автоматизации развёртывания.
+  - При разработке и тестировании в изолированных окружениях.
+  - При заведомо безопасных операциях.
 
 7. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**. 
+
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-24-34" src="https://github.com/user-attachments/assets/f81da4e1-643d-4180-858f-b04db26cb884" />
+
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-25-04" src="https://github.com/user-attachments/assets/69de90c0-e871-4bbe-86f0-98ba45a23132" />
+
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-25-11" src="https://github.com/user-attachments/assets/6a1a500b-361c-42ba-b1c5-67c487eab03b" />
+
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-25-52" src="https://github.com/user-attachments/assets/7f0afa2f-2a7e-4770-b2f6-05da5727dcfe" />
 
 
 8. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ**, а затем **ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ** строчкой из документации [**terraform провайдера docker**](https://library.tf/providers/kreuzwerker/docker/latest).  (ищите в классификаторе resource docker_image )
 
 
+<img width="1920" height="936" alt="Снимок экрана от 2026-06-13 13-29-01" src="https://github.com/user-attachments/assets/d69a5167-36d1-404f-abcc-fff4ad9bf75b" />
 
+<img width="1920" height="936" alt="image" src="https://github.com/user-attachments/assets/ea67ad85-2580-4e6a-82e7-de0a589747d6" />
 
+ - ```keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.```
 
     
     </details>
