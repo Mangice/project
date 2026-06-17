@@ -33,7 +33,7 @@
   - Захардкодил ключ для доступа к ВМ.
   - `preemptible = true` – делает виртуальную машину прерываемой. Это сильно удешевляет стоимость, но VM может быть остановлена в любой момент (максимум живёт 24 часа).
   - `core_fraction = 5` – гарантирует только 5% производительности физического ядра (burst-модель). Это самый дешёвый тариф.
-  - [Файлы с которыми запускал первое задание](https://github.com/Mangice/project/tree/main/File)
+  - [Файлы с которыми запускал первое задание](https://github.com/Mangice/project/commit/a47f14ef2ce87627684383438131071895a33340)
 
 </details>
 
@@ -48,8 +48,7 @@
 
   <img width="1846" height="391" alt="Снимок экрана от 2026-06-17 19-12-10" src="https://github.com/user-attachments/assets/e5dacb1a-4430-4635-8481-9fae23c61551" />
 
-
-  - [Файлы с которыми запускал второе задание](./files/src_2/)
+  - [Файлы с которыми запускал второе задание](https://github.com/Mangice/project/tree/main/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Terraform.%20Yandex%20Cloud/File1)
  
 
 </details>
