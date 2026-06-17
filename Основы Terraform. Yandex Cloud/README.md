@@ -62,6 +62,84 @@
 2. Скопируйте блок ресурса и создайте с его помощью вторую ВМ в файле main.tf: **"netology-develop-platform-db"** ,  ```cores  = 2, memory = 2, core_fraction = 20```. Объявите её переменные с префиксом **vm_db_** в том же файле ('vms_platform.tf').  ВМ должна работать в зоне "ru-central1-b"
 3. Примените изменения.
 
-  - [Файлы с которыми запускал третье задание]()
+  - [Файлы с которыми запускал третье задание](https://github.com/Mangice/project/tree/main/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Terraform.%20Yandex%20Cloud/Zad2)
+
+</details>
+
+## Задание 4
+
+<details>
+<summary>Задание 4 и ответ</summary>
+
+1. Объявите в файле outputs.tf **один** output , содержащий: instance_name, external_ip, fqdn для каждой из ВМ в удобном лично для вас формате.(без хардкода!!!)
+2. Примените изменения.
+
+В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
+
+  <img width="1841" height="371" alt="Снимок экрана от 2026-06-17 19-48-54" src="https://github.com/user-attachments/assets/63750e27-8ce1-4594-bef6-c189cd125cec" />
+
+
+  - Нет ip, потому что поймал ограничение на создание ВМ с внешними айпи.
+  - [Файлы с которыми запускал четвёртое задание](https://github.com/Mangice/project/tree/main/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Terraform.%20Yandex%20Cloud/Zad3)
+
+</details>
+
+## Задание 5
+
+<details>
+<summary>Задание 5 и ответ</summary>
+
+1. В файле locals.tf опишите в **одном** local-блоке имя каждой ВМ, используйте интерполяцию ${..} с НЕСКОЛЬКИМИ переменными по примеру из лекции.
+2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
+3. Примените изменения.
+
+  ![5.1](./img/img5.1.png)
+
+  - [Файлы с которыми запускал пятое задание](./files/src_5/)
+  - [Пошаговое выполнение задания](./files/step_by_step.md)
+
+</details>
+
+## Задание 6
+
+<details>
+<summary>Ответ</summary>
+
+1. Вместо использования трёх переменных  ".._cores",".._memory",".._core_fraction" в блоке  resources {...}, объедините их в единую map-переменную **vms_resources** и  внутри неё конфиги обеих ВМ в виде вложенного map(object).  
+   ```
+   пример из terraform.tfvars:
+   vms_resources = {
+     web={
+       cores=2
+       memory=2
+       core_fraction=5
+       hdd_size=10
+       hdd_type="network-hdd"
+       ...
+     },
+     db= {
+       cores=2
+       memory=4
+       core_fraction=20
+       hdd_size=10
+       hdd_type="network-ssd"
+       ...
+     }
+   }
+   ```
+3. Создайте и используйте отдельную map(object) переменную для блока metadata, она должна быть общая для всех ваших ВМ.
+   ```
+   пример из terraform.tfvars:
+   metadata = {
+     serial-port-enable = 1
+     ssh-keys           = "ubuntu:ssh-ed25519 AAAAC..."
+   }
+   ```  
+  
+5. Найдите и закоментируйте все, более не используемые переменные проекта.
+6. Проверьте terraform plan. Изменений быть не должно.
+
+  - [Файлы с которыми запускал шестое задание](./files/src_6/)
+  - [Пошаговое выполнение задания](./files/step_by_step.md)
 
 </details>
