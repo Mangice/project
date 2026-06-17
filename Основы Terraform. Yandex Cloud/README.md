@@ -98,7 +98,7 @@
 ## Задание 6
 
 <details>
-<summary>Ответ</summary>
+<summary>Задание и ответ</summary>
 
 1. Вместо использования трёх переменных  ".._cores",".._memory",".._core_fraction" в блоке  resources {...}, объедините их в единую map-переменную **vms_resources** и  внутри неё конфиги обеих ВМ в виде вложенного map(object).  
    ```
