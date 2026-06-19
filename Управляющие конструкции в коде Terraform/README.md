@@ -93,6 +93,9 @@ storage ansible_host=<внешний ip-адрес> fqdn=<полное доме�
 </details>
 
 <details>
+ 
 <summary>Коммит</summary>
-- [Ссылка на коммит](https://github.com/Mangice/project/commit/a333dec)
+
+ - [Commit](https://github.com/Mangice/project/commit/a333dec)
+
 </details>
