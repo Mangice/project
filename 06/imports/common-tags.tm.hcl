@@ -5,7 +5,7 @@ generate_hcl "common-locals.tf" {
   content {
     locals {
       common_tags = {
-        managed_by = "terramate"
+        managed_by = "super-terramate"
         project    = "netology-homework"
       }
     }
