@@ -19,7 +19,7 @@ resource "yandex_compute_instance" "storage" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8tm4ja1he7v7vknauu"  # Ubuntu 24.04
+      image_id = data.yandex_compute_image.ubuntu.id
       size     = 10
     }
   }
